@@ -28,4 +28,3 @@ This repository contains original source code, but it does not grant rights to t
 The absence of model weights is intentional. Each user is responsible for
 obtaining them from authorized sources and for complying with the applicable
 license terms and usage restrictions.
-The absence of model weights is intentional. Each user is responsible for obtaining them from authorized sources and providing their paths through the program's command-line arguments.
