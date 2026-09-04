@@ -3,6 +3,7 @@ message: "If you use this software, please cite this software release."
 title: "Gaze-Aware Stereo Vision ADAS"
 type: software
 version: 1.0.0
+date-released: 2026-09-04
 
 abstract: >-
   Research software for real-time driver gaze estimation, stereo-vision-based
