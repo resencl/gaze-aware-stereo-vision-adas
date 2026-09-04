@@ -4,13 +4,14 @@
 """
 Real-time ADAS gaze and distance estimation
 
-Incluye:
-- Captura simultánea con dos cámaras OAK-D.
-- Estimación de mirada y comparación con ground truth manual por clic.
-- Error en píxeles, NSS y error angular de mirada en grados.
-- FPS real del programa y FPS efectivo por cámara.
-- Conteos ADAS, TTC, alarma y latencias.
-- Guardado opcional de frames LR sin etiquetas para preparar un dataset YOLO; este ejecutable no calcula precision, recall ni mAP.
+Includes:
+- Simultaneous capture from two OAK-D cameras.
+- Gaze estimation and comparison with manually clicked ground truth.
+- Pixel error, NSS, and angular gaze error in degrees.
+- End-to-end application FPS and effective FPS for each camera.
+- ADAS counts, TTC, warnings, and latency measurements.
+- Optional storage of unlabeled LR frames for preparing a YOLO dataset; this
+  executable does not calculate precision, recall, or mAP.
 """
 import cv2
 import depthai as dai
@@ -672,12 +673,12 @@ class GazeAwareADAS:
 
     def calculate_angular_error(self, gaze_point, click_point):
         """
-        Calcula el error angular de mirada entre la predicción y el punto GT.
+        Calculate the angular gaze error between the prediction and GT point.
 
-        Ambos puntos se convierten a rayos 3D mediante un modelo pinhole:
+        Both points are converted to 3D rays using a pinhole camera model:
             r = [(x - cx) / fx, (y - cy) / fy, 1]
 
-        El resultado se devuelve en grados usando los intrínsecos activos de la cámara LR.
+        Return the result in degrees using the active LR camera intrinsics.
         """
         fx = float(self.K_lr[0, 0])
         fy = float(self.K_lr[1, 1])
